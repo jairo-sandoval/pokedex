@@ -1,38 +1,423 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Padauk&family=Rubik:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header{
+    background: url('https://www.bizak.es/wp-content/uploads/2018/09/BANNER-26-POKEMON-1920X700-1170x427.jpg');
+    background-size: cover; 
+    background-position: center;
+    width: 100%;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.welcome{
+    width: 85%;
+    margin: 50px auto;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.welcome h1{
+    font-size: 50px;
+    padding-bottom: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.pokemons_list{
+    display: grid;
+    width: 90%;
+    padding: 30px;
+    margin: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a{
+    text-decoration: none;
+}
+
+.card_pokemon{
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+    /* background: linear-gradient(135deg, #d41e31, #491f8f); */
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.card_pokemon img {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 120px;
+    width: 120px;
+    transition: 0.5s;
+} 
+
+.card_pokemon:hover img{
+    left: 78%;
+    height: 180px;
+    width: 180px;
+}
+
+.content {
+    position: relative;
+    width: 50%;
+    left: 20%;
+    padding: 20px 20px 20px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 20;
+    font-size: 15px;
+}
+
+.card_pokemon:hover .content{
+    opacity: 1;
+    visibility: visible;
+    left: 0%;
+} 
+
+.content div{
+    background: rgb(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 4px;
+    margin-bottom: 5px;
+    width: fit-content;
+    
+}
+
+.content h2{
+    font-size: 23px;
+}
+
+.content div h3{
+    margin: 0;
+    padding: 0;
+}
+
+/*PAGINATION*/
+
+.container_pagination{
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+}
+
+.container_pagination ul{
+    list-style-type: none;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    padding-left: 0;
+    transition: 0.7s;
+}
+
+.container_pagination ul > li{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    background: #6c79db;
+    box-shadow: 1px 1px 3px #6c79db;
+    color: white;
+    text-align: center;
+    line-height: 200%;    
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.container_pagination button{
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    background: #6c79db;
+    color: white;
+    text-align: center;   
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 80%;
+    transition: 0.3s;
+    border: none;
+}
+
+.container_pagination button:hover{
+    background: #67c98e;
+}
+
+.container_pagination ul > li:hover{
+    background: #67c98e;
+}
+
+
+.buttons_style{
+    display: block;
+    /* box-shadow: inset 2px 1px 12px 13px #f5f5f5; */
+    width: 100%;
+    overflow: hidden;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+/*POKEMON iNFO*/
+
+
+.container_pokemon_info a {
+    display: block;
+    padding:  40px 0px 0px 40px;;
+    text-decoration: none;
+   
+}
+
+.container_pokemon_info i{
+    font-size: 30px;
+}
+
+.container_pokemon_info img{
+    width: 23%;
+    margin-left: 123px;
+}
+
+
+.pokemon_ct{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin:  auto;
+    margin-bottom: 30px;
+    
+}
+
+.pokemon_ft{
+    width: 75%;
+    margin-right: 20px;
+}
+
+.pokemon_gl_1{
+    grid-column: 1 / 4;
+    background: white;
+    position: relative;
+    padding: 20px;
+}
+
+.pokemon_gl_1 img{
+    width: 253px;
+    height: 253px;
+    position: absolute;
+    top: -91%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.pokemon_glp_1{
+    width: 100%;
+    height: 90px;
+}
+
+.pokemon_glp_2 {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.pokemon_glp_2 h4{
+    text-align: center;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.pokemon_glp_2 p{
+    padding: 5px;
+    color: rgb(78, 72, 72);
+} 
+
+.pokemon_ct h2{
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    text-shadow: 1px 0px 1px #333;
+}
+
+.pokemon_gl_1 > p{
+    display: block;
+    margin: auto;
+    border: 1px solid gray;
+    padding: 3px;
+    width: 6%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/**/
+
+.pokemon_gl_2{
+    display: grid;
+    grid-template-columns: repeat( 2, 1fr);
+    margin-top: 20px;
+    grid-gap: 20px; 
+    
+}
+
+.pokemon_glp2{
+    padding: 20px;
+    background: white;
+}
+
+.pokemon_glp3{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pokemon_glp4{
+    flex-grow: 1;
+    margin: 30px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
+}
+
+.pokemon_glp4.abilities{
+    color: black;
+}
+
+.pokemon_gl3{
+    background: white;
+    padding: 20px;
+    width: 23%;
+}
+
+.pokemon_gl3 p{
+    margin: auto;
+    font-size: 16px;
+    padding: 8px;
+    color: rgb(78, 72, 72);
+    width: 50%;
+    border-bottom: 1px solid rgb(197, 197, 197);
+    text-align: center;
+}
+
+
+/*SETTINGS*/
+
+.config{
+    position: fixed;
+    bottom: 3%;
+    right: 1%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #4a57c0; 
+    color: white;
+    cursor: pointer;
+}
+
+.config i{
+    padding: 13px;
+    font-size: 35px;
+    transition: 0.3s;
+}
+
+.config:hover {
+    box-shadow: 0px 1px 7px #6c79db;
+}
+
+.config:hover i{
+    animation-name: rotate;
+    animation-duration: 2s;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.container_config{
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_config h2{
+    font-size: 40px;
+    padding: 30px;
+}
+
+.container_config .container_gl{
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px rgb(0 0 0 / 40%);
+    margin-top: 40px;
+}
+
+.container_gl h3{
+    font-size: 30px;
+    padding: 20px; 
+}
+
+.container_config i{
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    display: block;
+    position: relative;
+    width: 80px;
+    height:  40px;
+    -webkit-appearance: none;
+    background: #c6c6c6;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,.2);
+    transition: .5s;
+    cursor: pointer;
+    margin: auto;
+}
+
+input:checked[type="checkbox"]{
+    background: rgba(0, 0, 0, 0.8);
+}
+
+input[type="checkbox"]:before{
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    transform: scale(1.1);
+    transition: .5s;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);;
+}
+
+input:checked[type="checkbox"]:before{
+    left: 40px;
 }
