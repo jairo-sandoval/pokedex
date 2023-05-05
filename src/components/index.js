@@ -1,0 +1,6 @@
+export { default as Login } from './Login'
+export { default as Pokedex } from './Pokedex'
+export { default as PokemonCard } from './PokemonCard'
+export { default as PokemonInfo } from './PokemonInfo'
+export { default as ProtectedRoutes } from './ProtectedRoutes'
+export { default as Config } from './Config'

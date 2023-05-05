@@ -1,23 +1,17 @@
-import './App.css';
+import './styles/App.css';
 import {
   HashRouter,
   Routes,
   Route
 } from 'react-router-dom'
-import Home from './components/Home';
-import Login from './components/Login';
-import ProtectedRoutes from './components/ProtectedRoutes';
-import Pokedex from './components/Pokedex';
-import PokemonInfo from './components/PokemonInfo';
-import Config from './components/Config';
+import { Login, ProtectedRoutes, Pokedex, PokemonInfo, Config } from './components/index' 
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<Login />} /> 
-
+        <Route path="/" element={<Login />} /> 
+        
         <Route element={<ProtectedRoutes/>}>
           <Route path="/pokedex" element={<Pokedex />}/>
           <Route path="/pokedex/:id" element={<PokemonInfo />} />

@@ -3,19 +3,17 @@ import { Link, useParams } from 'react-router-dom';
 import getColors from '../services/getColors';
 import getPokemon from '../services/getPokemon';
 
-
 const PokemonInfo = () => {
     const { id } = useParams();
     const [pokemonInfo, setPokemonInfo] = useState({})
- 
+
     useEffect(() => {
         const body = document.getElementsByTagName('body')[0]
 
         getPokemon(id)
             .then(res => {
                 setPokemonInfo(res)
-                console.log(res.types[0].type.name)
-
+                console.log(res)
                
                 body.style.background = getColors(res.types[0].type.name)
             })
@@ -23,7 +21,7 @@ const PokemonInfo = () => {
         return () => {
             body.style.background = 'white'
         }
-    }, [])
+    }, [id])
 
     return (
         <div className="container_pokemon_info">
