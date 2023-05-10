@@ -9,6 +9,9 @@ const Login = () => {
 
     const submit_userName = (event) => {
         event.preventDefault()
+
+        if(!userName) return 
+        
         dispatch({
             type: "GET_USERNAME",
             payload: userName
@@ -18,14 +21,23 @@ const Login = () => {
     }   
 
     return (
-        <div className="Login">
+        <div className="login">
+            <div className='login-image'>
+                <img 
+                    src="https://www.pngmart.com/files/2/Pokemon-Ash-PNG-HD.png"
+                />
+
+            </div>
             <form onSubmit={submit_userName}>
                 <input 
                     type="text"
                     onChange={e => setUserName(e.target.value)}
                     value={userName}
+                    placeholder="Escribe tu nombre"
                 />
-                <button>submit</button>
+                <button className='submit'>
+                    <img src="https://icons.veryicon.com/png/o/business/middle-stage-background-icon/submission-3.png"/>
+                </button>
             </form>
         </div>
     );

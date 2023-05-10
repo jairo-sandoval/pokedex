@@ -7,6 +7,35 @@
     font-family: 'Nunito', sans-serif;
 }
 
+.login-image {
+    width: 100%;
+    text-align: center;
+}
+
+.login-image img{
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login .submit{
+    height: 100%;
+    width: 40px;
+    height: 40px;
+    background: #40FF2F;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px #c6c6c6;
+    color: white;
+}
+
+.login .submit > img{
+    width: 20px;
+    height: auto;
+}
+
 .header{
     background: url('https://www.bizak.es/wp-content/uploads/2018/09/BANNER-26-POKEMON-1920X700-1170x427.jpg');
     background-size: cover; 
@@ -41,6 +70,12 @@
     font-size: 20px;
     font-weight: bold;
     padding: 0px 20px 0px 20px;
+}
+
+.input_search_pokemon img{
+    width: 20px;
+    height: auto;
+    margin: auto;
 }
 
 form{

@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import getPokemons from '../services/getPokemons'
 import InputTypePokemon from './InputTypePokemon';
 import PokemonCard from './PokemonCard';
+import pokeball from '../img/pokeball.png'
 
 const Pokedex = () => {
     const userName = useSelector(state => state.userName)
@@ -59,6 +60,8 @@ const Pokedex = () => {
 
     const searchPokemonInfo = (e) => {
         e.preventDefault()
+        if(!inputPokemon) return
+
         navigate(`/pokedex/${inputPokemon}`)
         setInputPokemon(false)
     }
@@ -66,14 +69,19 @@ const Pokedex = () => {
     const changeTypeInput = () => {
         if (typeInput) {
             return (
-                <form onSubmit={searchPokemonInfo}>
+                <form className="input_search_pokemon" onSubmit={searchPokemonInfo}>
                     <input
                         type="text"
                         placeholder="Search pokemon"
                         onChange={e => setInputPokemon(e.target.value)}
                         value={inputPokemon}
                     />
-                    <button><img src="../img/pokeball.png" /></button>
+                    <button
+                        type='submit'    
+                        className=''
+                    >
+                        <img src="https://w7.pngwing.com/pngs/324/645/png-transparent-pokemon-go-gotcha-video-game-jynx-pokeball-orange-pokemon-technology.png" />
+                    </button>
                 </form>
             )
         }
